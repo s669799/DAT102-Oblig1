@@ -18,28 +18,59 @@ public class Filmarkiv implements FilmarkivADT {
 		for (Film f : filmarkiv) {
 			if (f.getFilmnr() == filmnr) {
 				temp = f;
-			}	
+			}
 			break;
-
 		}
 		return temp;
 	}
 
 	@Override
 	public void leggTilFilm(Film nyFilm) {
-		// TODO Auto-generated method stub
 
+		if (antall == filmarkiv.length) {
+			utvid();
+		}
+		filmarkiv[antall] = nyFilm;
+		antall++;
+	}
+
+	private void utvid() {
+
+		Film[] nyTab = new Film[filmarkiv.length * 2];
+
+		for (int i = 0; i < filmarkiv.length; i++) {
+			nyTab[i] = filmarkiv[i];
+		}
+		filmarkiv = nyTab;
 	}
 
 	@Override
 	public boolean slettFilm(int filmnr) {
-		// TODO Auto-generated method stub
-		return false;
+
+		boolean slettet = false;
+
+		for (int i = 0; i < antall && !slettet; i++) {
+			if (filmarkiv[i].getFilmnr() == filmnr) {
+				antall--;
+				filmarkiv[i] = filmarkiv[antall];
+				filmarkiv[antall] = null;
+			}
+		}
+		return slettet;
 	}
 
 	@Override
 	public Film[] soekTittel(String delstreng) {
-		// TODO Auto-generated method stub
+		
+		Film[] match;
+		
+		for (int i = 0; i < antall; i++) {
+			if(filmarkiv[i].getTittel().toLowerCase().contains(delstreng.toLowerCase())) {
+				
+			}
+		}
+		
+		
 		return null;
 	}
 
