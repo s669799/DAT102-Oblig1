@@ -99,4 +99,13 @@ public class Film {
 		return temp.hashCode();
 	}
 
+	@Override
+	public String toString() {
+
+		String filmtxt = "Filmnr: " + filmnr + "\nProdusent: " + produsent + "\nTittel: " + tittel + "\nLanseringsår"
+				+ lansertaar + "\nSjanger" + sjanger.toString() + "\nFilmselskap: " + filmselskap;
+
+		return filmtxt;
+	}
+
 }

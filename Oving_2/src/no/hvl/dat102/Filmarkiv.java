@@ -61,29 +61,45 @@ public class Filmarkiv implements FilmarkivADT {
 
 	@Override
 	public Film[] soekTittel(String delstreng) {
-		
-		Film[] match;
-		
+
+		Film[] match = new Film[antall];
+		int j = 0;
+
 		for (int i = 0; i < antall; i++) {
-			if(filmarkiv[i].getTittel().toLowerCase().contains(delstreng.toLowerCase())) {
-				
+			if (filmarkiv[i].getTittel().toLowerCase().contains(delstreng.toLowerCase())) {
+				match[j] = filmarkiv[i];
+				j++;
 			}
 		}
-		
-		
-		return null;
+		return trimTab(match, j);
+	}
+
+	private Film[] trimTab(Film[] tab, int n) {
+		// n er antall elementer
+		Film[] nytab = new Film[n];
+		int i = 0;
+		while (i < n) {
+			nytab[i] = tab[i];
+			i++;
+		}
+		return nytab;
 	}
 
 	@Override
 	public int antall(Sjanger sjanger) {
-		// TODO Auto-generated method stub
-		return 0;
+
+		int filmer = 0;
+
+		for (int i = 0; i < antall; i++) {
+			if (filmarkiv[i].getSjanger() == sjanger) {
+				filmer++;
+			}
+		}
+		return filmer;
 	}
 
 	@Override
 	public int antall() {
-		// TODO Auto-generated method stub
-		return 0;
+		return antall;
 	}
-
 }
