@@ -41,8 +41,9 @@ public class Tekstgrensesnitt {
 				f = new Film(filmnr, produsent, tittel, lansertaar, sjanger, selskap);
 
 				innlest = true;
+
 			} catch (InputMismatchException e) {
-				System.out.println("Prøv igjen");
+				System.out.println("Feil datatype. Prøv igjen");
 			}
 		}
 		return f;
@@ -50,24 +51,42 @@ public class Tekstgrensesnitt {
 
 	// vise en film med alle opplysninger på skjerm (husk tekst for sjanger)
 	public void visFilm(Film film) {
-		
+
 		System.out.println(film.toString());
 	}
 
 	// Skrive ut alle Filmer med en spesiell delstreng i tittelen
 	public void skrivUtFilmDelstrengITittel(FilmarkivADT filma, String delstreng) {
-		// TODO
+
+		Film[] treff = filma.soekTittel(delstreng);
+
+		for (int i = 0; i < treff.length; i++) {
+			System.out.println(filma.toString());
+		}
 	}
 
 	// Skriver ut alle Filmer av en produsent / en gruppe
 	public void skrivUtFilmProdusent(FilmarkivADT filma, String delstreng) {
-		// TODO
+
+		Film[] treff = filma.soekProdusent(delstreng);
+
+		for (int i = 0; i < treff.length; i++) {
+			System.out.println(filma.toString());
+		}
 	}
 
 	// Skrive ut en enkel statistikk som inneholder antall Filmer totalt
 	// og hvor mange det er i hver sjanger
 	public void skrivUtStatistikk(FilmarkivADT filma) {
-		// TODO
+
+		System.out.println("Antall filmer: " + filma.antall());
+		System.out.println("Antall ");
+		
+		for (Sjanger sj : Sjanger.values()) {
+			int filmer = filma.antall(sj);
+			System.out.println(sj + "-filmer: " + filmer);
+
+		}
 	}
 	// ... Ev. andre metoder
 
