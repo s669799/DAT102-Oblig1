@@ -103,7 +103,7 @@ public class Film {
 	public String toString() {
 
 		String filmtxt = "Filmnr: " + filmnr + "\nProdusent: " + produsent + "\nTittel: " + tittel + "\nLanseringsår"
-				+ lansertaar + "\nSjanger" + sjanger.toString() + "\nFilmselskap: " + filmselskap;
+				+ lansertaar + "\nSjanger" + sjanger.toString() + "\nFilmselskap: " + filmselskap + "\n";
 
 		return filmtxt;
 	}

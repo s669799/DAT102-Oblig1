@@ -74,6 +74,20 @@ public class Filmarkiv implements FilmarkivADT {
 		return trimTab(match, j);
 	}
 
+	public Film[] soekProdusent(String delstreng) {
+		
+		Film[] match = new Film[antall];
+		int j = 0;
+		
+		for(int i = 0; i < antall; i++) {
+			if(filmarkiv[i].getProdusent().toLowerCase().contains(delstreng.toLowerCase())) {
+				match[j] = filmarkiv[i];
+				j++;
+			}
+		}
+		return trimTab(match, j);
+	}
+
 	private Film[] trimTab(Film[] tab, int n) {
 		// n er antall elementer
 		Film[] nytab = new Film[n];
@@ -102,4 +116,5 @@ public class Filmarkiv implements FilmarkivADT {
 	public int antall() {
 		return antall;
 	}
+
 }
