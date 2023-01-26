@@ -1,7 +1,6 @@
 package no.hvl.dat102;
 
 import no.hvl.dat102.adt.FilmarkivADT;
-import no.hvl.dat102.LinearNode;
 
 public class Filmarkiv2 implements FilmarkivADT {
 
@@ -36,6 +35,7 @@ public class Filmarkiv2 implements FilmarkivADT {
 		 LinearNode<Film> nynode = new LinearNode<Film>(el);
 		 nynode.setNeste(start);
 		 start = nynode;
+		 antall++;
 	}
 	
 	@Override
@@ -64,16 +64,30 @@ public class Filmarkiv2 implements FilmarkivADT {
 	public Film[] soekTittel(String delstreng) {
 		Film[] tabell = (Film[]) new Object[antall];
 		int i = 0;
-		int j = 0;
 		LinearNode<Film> aktuell = start;
 		while (aktuell != null) {
 			if (aktuell.getElement().getTittel().toLowerCase().contains(delstreng.toLowerCase())) {
-				tabell[j] = aktuell.getElement();
-				j++;
+				tabell[i] = aktuell.getElement();
+				i++;
 			}
 			aktuell = aktuell.getNeste();
 		}
-		return trimTab(tabell,j);
+		return trimTab(tabell,i);
+	}
+	
+	@Override
+	public Film[] soekProdusent(String delstreng) {
+		Film[] tabell = (Film[]) new Object[antall];
+		int i = 0;
+		LinearNode<Film> aktuell = start;
+		while (aktuell != null) {
+			if (aktuell.getElement().getProdusent().toLowerCase().contains(delstreng.toLowerCase())) {
+				tabell[i] = aktuell.getElement();
+				i++;
+			}
+			aktuell = aktuell.getNeste();
+		}
+		return null;
 	}
 		
 	private Film[] trimTab(Film[] tab, int n) {
