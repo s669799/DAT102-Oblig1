@@ -111,9 +111,9 @@ public class Filmarkiv2 implements FilmarkivADT {
 		LinearNode<Film> aktuell = start;
 		for (int soek = 0; soek < antall; soek++) {
 			if (aktuell.getElement().getSjanger().equals(sjanger)) {
-				filmer++;
-				aktuell = aktuell.getNeste();
+				filmer++;	
 			}
+			aktuell = aktuell.getNeste();
 				
 		}
 		return filmer;

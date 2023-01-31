@@ -80,6 +80,7 @@ public class Tekstgrensesnitt {
 	public static void skrivUtStatistikk(FilmarkivADT filma) {
 
 		System.out.println("Antall filmer: " + filma.antall());
+		System.out.println();
 		System.out.println("Antall per sjanger ");
 		
 		for (Sjanger sj : Sjanger.values()) {
@@ -87,6 +88,7 @@ public class Tekstgrensesnitt {
 			System.out.println(sj + "-filmer: " + filmer);
 
 		}
+		System.out.println();
 	}
 	// ... Ev. andre metoder
 

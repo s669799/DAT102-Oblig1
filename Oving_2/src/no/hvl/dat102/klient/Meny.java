@@ -32,5 +32,10 @@ public class Meny {
 		
 		Tekstgrensesnitt.skrivUtStatistikk(filmarkiv);
 		
+		filmarkiv.slettFilm(1);
+		
+		Tekstgrensesnitt.skrivUtStatistikk(filmarkiv);
+		
+		
 	}
 }
