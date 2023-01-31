@@ -22,5 +22,15 @@ public class Meny {
 		Film f5 = new Film(5, "Leo", "Noe om historie", 2012, Sjanger.HISTORY, "Evo");
 		Film f6 = new Film(6, "Rune", "Swift 3", 1912, Sjanger.ACTION, "Et filmstudio");
 	
+		//Div tester
+		filmarkiv.leggTilFilm(f1);
+		filmarkiv.leggTilFilm(f2);
+		filmarkiv.leggTilFilm(f3);
+		filmarkiv.leggTilFilm(f4);
+		filmarkiv.leggTilFilm(f5);
+		filmarkiv.leggTilFilm(f6);
+		
+		Tekstgrensesnitt.skrivUtStatistikk(filmarkiv);
+		
 	}
 }
