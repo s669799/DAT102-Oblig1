@@ -45,9 +45,9 @@ public class Filmarkiv2 implements FilmarkivADT {
 		LinearNode<Film> aktuell = start;
 		for (int soek = 0; soek < antall && !slettet; soek++) {
 			if (aktuell.getElement().getFilmnr() == filmnr) {
-				aktuell = aktuell.getNeste();		// TODO slette funksjon
-				slettet = true;
-				
+				aktuell.setElement(aktuell.getNeste().getElement());
+				aktuell.setNeste(aktuell.getNeste().getNeste());        // TODO check if it works
+				slettet = true;	
 			}
 			aktuell = aktuell.getNeste();	
 		}
@@ -111,10 +111,9 @@ public class Filmarkiv2 implements FilmarkivADT {
 		LinearNode<Film> aktuell = start;
 		for (int soek = 0; soek < antall; soek++) {
 			if (aktuell.getElement().getSjanger().equals(sjanger)) {
-				filmer++;	
+				filmer++;
 			}
 			aktuell = aktuell.getNeste();
-				
 		}
 		return filmer;
 	}	
