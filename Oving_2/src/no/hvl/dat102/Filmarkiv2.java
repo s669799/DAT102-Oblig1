@@ -46,7 +46,7 @@ public class Filmarkiv2 implements FilmarkivADT {
 		for (int soek = 0; soek < antall && !slettet; soek++) {
 			if (aktuell.getElement().getFilmnr() == filmnr) {
 				aktuell.setElement(aktuell.getNeste().getElement());
-				aktuell.setNeste(aktuell.getNeste().getNeste());        // TODO check if it works
+				aktuell.setNeste(aktuell.getNeste().getNeste());
 				slettet = true;
 				antall--;
 			}
