@@ -47,7 +47,8 @@ public class Filmarkiv2 implements FilmarkivADT {
 			if (aktuell.getElement().getFilmnr() == filmnr) {
 				aktuell.setElement(aktuell.getNeste().getElement());
 				aktuell.setNeste(aktuell.getNeste().getNeste());        // TODO check if it works
-				slettet = true;	
+				slettet = true;
+				antall--;
 			}
 			aktuell = aktuell.getNeste();	
 		}
@@ -62,7 +63,7 @@ public class Filmarkiv2 implements FilmarkivADT {
 	
 	@Override
 	public Film[] soekTittel(String delstreng) {
-		Film[] tabell = (Film[]) new Object[antall];
+		Film[] tabell = new Film[antall];
 		int i = 0;
 		LinearNode<Film> aktuell = start;
 		while (aktuell != null) {
@@ -77,7 +78,7 @@ public class Filmarkiv2 implements FilmarkivADT {
 	
 	@Override
 	public Film[] soekProdusent(String delstreng) {
-		Film[] tabell = (Film[]) new Object[antall];
+		Film[] tabell = new Film[antall];
 		int i = 0;
 		LinearNode<Film> aktuell = start;
 		while (aktuell != null) {
