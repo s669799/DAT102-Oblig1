@@ -10,7 +10,7 @@ import no.hvl.dat102.adt.FilmarkivADT;
 public class Tekstgrensesnitt {
 
 	// lese opplysningene om en FILM fra tastatur
-	public Film lesFilm() {
+	public static Film lesFilm() {
 
 		Film f = null;
 		boolean innlest = false;
@@ -23,6 +23,8 @@ public class Tekstgrensesnitt {
 				System.out.println("Filmnummer");
 				int filmnr = input.nextInt();
 
+				input.nextLine();
+
 				System.out.println("Produsent");
 				String produsent = input.nextLine();
 
@@ -31,9 +33,12 @@ public class Tekstgrensesnitt {
 
 				System.out.println("Lanseringsår");
 				int lansertaar = input.nextInt();
+				
+				input.nextLine();
 
 				System.out.println("Sjanger");
-				Sjanger sjanger = Sjanger.valueOf(input.nextLine());
+				String sjangertxt = input.nextLine();
+				Sjanger sjanger = Sjanger.finnSjanger(sjangertxt);
 
 				System.out.println("Filmselskap");
 				String selskap = input.nextLine();
@@ -50,13 +55,13 @@ public class Tekstgrensesnitt {
 	}
 
 	// vise en film med alle opplysninger på skjerm (husk tekst for sjanger)
-	public void visFilm(Film film) {
+	public static void visFilm(Film film) {
 
 		System.out.println(film.toString());
 	}
 
 	// Skrive ut alle Filmer med en spesiell delstreng i tittelen
-	public void skrivUtFilmDelstrengITittel(FilmarkivADT filma, String delstreng) {
+	public static void skrivUtFilmDelstrengITittel(FilmarkivADT filma, String delstreng) {
 
 		Film[] treff = filma.soekTittel(delstreng);
 
@@ -66,7 +71,7 @@ public class Tekstgrensesnitt {
 	}
 
 	// Skriver ut alle Filmer av en produsent / en gruppe
-	public void skrivUtFilmProdusent(FilmarkivADT filma, String delstreng) {
+	public static void skrivUtFilmProdusent(FilmarkivADT filma, String delstreng) {
 
 		Film[] treff = filma.soekProdusent(delstreng);
 
@@ -82,7 +87,7 @@ public class Tekstgrensesnitt {
 		System.out.println("Antall filmer: " + filma.antall());
 		System.out.println();
 		System.out.println("Antall per sjanger ");
-		
+
 		for (Sjanger sj : Sjanger.values()) {
 			int filmer = filma.antall(sj);
 			System.out.println(sj + "-filmer: " + filmer);

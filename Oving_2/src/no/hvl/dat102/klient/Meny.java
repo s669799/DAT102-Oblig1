@@ -21,6 +21,7 @@ public class Meny {
 		Film f4 = new Film(4, "Mateuz", "En annen film", 2019, Sjanger.DRAMA, "Femten");
 		Film f5 = new Film(5, "Leo", "Noe om historie", 2012, Sjanger.HISTORY, "Evo");
 		Film f6 = new Film(6, "Rune", "Swift 3", 1912, Sjanger.ACTION, "Et filmstudio");
+		Film f = Tekstgrensesnitt.lesFilm();
 	
 		//Div tester
 		filmarkiv.leggTilFilm(f1);
@@ -29,9 +30,12 @@ public class Meny {
 		filmarkiv.leggTilFilm(f4);
 		filmarkiv.leggTilFilm(f5);
 		filmarkiv.leggTilFilm(f6);
+		filmarkiv.leggTilFilm(f);
 		
 		System.out.println("----------------------------------");
 		Tekstgrensesnitt.skrivUtStatistikk(filmarkiv);
+		
+		Tekstgrensesnitt.visFilm(f);
 		
 		filmarkiv.slettFilm(1);
 		
