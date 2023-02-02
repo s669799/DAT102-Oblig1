@@ -30,12 +30,13 @@ public class Meny {
 		filmarkiv.leggTilFilm(f5);
 		filmarkiv.leggTilFilm(f6);
 		
+		System.out.println("----------------------------------");
 		Tekstgrensesnitt.skrivUtStatistikk(filmarkiv);
 		
 		filmarkiv.slettFilm(1);
 		
 		Tekstgrensesnitt.skrivUtStatistikk(filmarkiv);
-		
-		
+				
+		System.out.println("----------------------------------");
 	}
 }
